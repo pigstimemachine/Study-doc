@@ -31,10 +31,6 @@ git add .
 # 选择要添加的更改（你可以 Y 或 N 完成所有更改）
 git add -p
 
-作者：武培轩
-链接：https://zhuanlan.zhihu.com/p/94008510
-来源：知乎
-著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
 
 ### 提交暂存文件，通常用于较短的提交消息
 git commit -m 'commit message'
@@ -60,10 +56,6 @@ git rebase -i
 #  x, exec = run command (the rest of the line) using shell
 
 
-作者：武培轩
-链接：https://zhuanlan.zhihu.com/p/94008510
-来源：知乎
-著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
 
 ### 创建一个本地分支
 git checkout -b branchname
@@ -112,10 +104,6 @@ git checkout master
 git merge prc/dev-wupx
 
 
-作者：武培轩
-链接：https://zhuanlan.zhihu.com/p/94008510
-来源：知乎
-著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
 
 ### 切换到最新提交的代码版本
 git reset HEAD 
