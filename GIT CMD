@@ -18,3 +18,43 @@ https://github.com/wupeixuan/JDKSourceCode1.8.git然后，你可以继续将代�
 
 
 git status  命令用于确定哪些文件处于哪种状态，它使你可以查看哪些文件已提交，哪些文件尚未提交。如果在所有文件都已提交并推送后运行此命令，则应该看到类似以下内容：
+
+# 逐个添加文件
+git add filename
+
+# 添加当前目录中的所有文件
+git add -A
+
+# 添加当前目录中的所有文件更改
+git add .
+
+# 选择要添加的更改（你可以 Y 或 N 完成所有更改）
+git add -p
+
+作者：武培轩
+链接：https://zhuanlan.zhihu.com/p/94008510
+来源：知乎
+著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
+
+### 提交暂存文件，通常用于较短的提交消息
+git commit -m 'commit message'
+
+### 添加文件并提交一次
+git commit filename -m 'commit message'
+
+### 添加文件并提交暂存文件
+git commit -am 'insert commit message'
+
+### 更改你的最新提交消息
+git commit --amend 'new commit message' 
+
+# 将一系列提交合并为一个提交，你可能会用它来组织混乱的提交历史记录
+git rebase -i
+### 这将为你提供核心编辑器上的界面：
+# Commands:
+#  p, pick = use commit
+#  r, reword = use commit, but edit the commit message
+#  e, edit = use commit, but stop for amending
+#  s, squash = use commit, but meld into previous commit
+#  f, fixup = like "squash", but discard this commit's log message
+#  x, exec = run command (the rest of the line) using shell
