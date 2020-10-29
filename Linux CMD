@@ -1,14 +1,23 @@
 cd
 
-###改变档案所属群组 change group
 chgrp
+###改变档案所属群组 change group
 
-###改变档案拥有者 change owner
+
 chown
+###改变档案拥有者 change owner
 
+
+chmod
 ###改变档案的权限，SUID SGID SBIT等等的特性
 ### rwx r:4 w:2 x:1  owner = rwx = 4+2+1=7
-chmod
+###例chmod u=rwx,go=rx .bashrc 中间没有任何空格符！
+###例chmod u=rwx,g=rx,o=r [filename]
+###此外，如果我不知道知道原先的文件属性，而我只想要增加.bashrc 这个档案的每个人均可
+###写入的权限， 那我就可以使用：
+###chmod a+w .bashrc
+###如果是要将权限去掉而丌更劢其他已存在的权限呢？例如要拿掉全部人的可执行权限，则
+###chmod a-x .bashrc
 
 ###显示完整的时间格式
 ls -l --full-time 
