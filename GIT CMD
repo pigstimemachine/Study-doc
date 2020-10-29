@@ -169,3 +169,20 @@ git log --grep "project" --author "wupx"
 20201029
 git config 配置文件的相关参数
 
+git全局设置
+git config --global user.name "name"
+git config --global user.email "name@163.com"
+
+创建git仓库
+mkdir name
+cd name
+git init
+touch README.md
+git add README.md 
+git commit -m "first commit"
+git remote add origin https://gitee.com/mxg666/zcj.git
+git push -u origin master
+如果已有项目
+cd existing_git_repo
+git remote add origin https://gitee.com/mxg666/zcj.git
+git push -u origin master
