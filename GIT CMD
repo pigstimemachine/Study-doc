@@ -166,3 +166,6 @@ git log --since=yesterday
 ### 显示作者日志，并在提交消息中搜索特定术语
 git log --grep "project" --author "wupx"
 
+20201029
+git config 配置文件的相关参数
+
