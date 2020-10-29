@@ -7,6 +7,7 @@ chgrp
 chown
 
 ###改变档案的权限，SUID SGID SBIT等等的特性
+### rwx r:4 w:2 x:1  owner = rwx = 4+2+1=7
 chmod
 
 ###显示完整的时间格式
