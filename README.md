@@ -1,19 +1,92 @@
-# Study-doc 
+# Markdown常用指令集
 
+## 流程图基本指令
 
-this  is  a test ,i use my smart keyboard  write those words from my ipad pro  and this time is 20201114 15:08
-# this is a test
+### graph指定是一个图，第二个LR指定图的方向，所有的方向关键词为
+```
+
+TB - top bottom
+BT - bottom top
+RL - right left
+LR - left right
+TD - same as TB
+```
+* 之后的A,B,C等都是节点的标识（标识中不能使用空格）
+
+* 节点默认只显示标识,但也可以通过如下方法控制其显示
+
 ```mermaid
-graph LR;
-
-b:c-->a:d
+graph TD;
+	A;
+	B(B);
+	C((C));
+	D>D];
+	E{E};
 
 ```
 
-asdfasdfasdfasdfas<br/>asdfasgas
+* 以下是一些常用例程
+
+```mermaid
+graph LR;
+
+A[A] --> B[B];
+C ==> D;
+E --- F;
+H -.- I;
+J -.-> K;
+L -- EXPLAIN --- M;
+
+```
+<br>
+<br>
+
+
+
+* 还有更多网上的例程如下
+此处添加\<br>符号后，后面的指令识别不正确
+```mermaid
+graph LR;
+
+    A[A] --> B[B]; 
+    A1[A] --- B1[B]; 
+    A4[A] -.- B4[B]; 
+    A5[A] -.-> B5[B]; 
+    A7[A] ==> B7[B]; 
+    A2[A] -- 描述 --- B2[B];
+    A3[A] -- 描述 --> B3[B];
+    A6[A] -. 描述 .-> B6[B];
+    A8[A] == 描述 ==> B8[B];
+```
+
+* 以下例程初步测试未成功 测试发现每条指令还是需要添加分号才能识别
+```mermaid
+graph TB;
+         subgraph one
+         a1-->a2；
+         end
+         
+         subgraph two
+         b1-->b2；
+         end
+         
+         subgraph three
+         c1-->c2；
+         end
+         
+         c1-->a2;
+```         
+
+
+https://blog.csdn.net/lrnanfayer/article/details/104613690/
+
+* 文字编写等内容
+
+
+
 换行需要使用 \<br/><br/>否则不对
 
-强调符号在Tab键上方 使用`这`
+强调符号在Tab键上方 使用后`就会变成这样的强调`
 
 给一段文字加入超链接的格式是这样的 [ 要显示的文字 ]( 链接的地    "zcj handsome!!!")。比如：
 [帅气的zcj](www.sd.com悬停显示)
@@ -46,6 +119,43 @@ asdfasdfasdfasdfas<br/>asdfasgas
 ```C
 print("hello world\n");
 ```
+
+* this is  a markdown test
+>from handsome zcj
+
+***
+
+***
+***
+***
+***
+***
+
+***
+<br>
+```this single line code to print words```
+```
+this single line code to print words
+```
+ 表头  | 表头  | 表头
+|  :-----: | :-----: | :------:|  
+ 单元格内容  | 单元格内容 | 单元格内容 
+ | ----- | ----- | ------ | 
+ 单元格内容  | 单元格内容 | 单元格内容  
+
+*这是倾斜测试*<br>
+
+<br>
+**这是加粗测试**
+
+
+
+转义需要在前面加上\ 比如\<br>
+
+~~请删掉我吧~~
+
+
+
 
 
 
@@ -152,9 +262,11 @@ CAN0-->自动焊:CAN0通信主站-->自动焊:305主程序
 305主程序--语言-->显示程序
 ```
 - B机
+
 ```mermaid
 graph LR;
 
-CAN1-->冯希望:显示程序-->消息中转服务
-CAN0-->自动焊:CAN0通信从站-->消息中转服务
+CAN1 --> 冯希望:显示程序 --> 消息中转服务
+CAN0 --> 自动焊:CAN0通信从站 --> 消息中转服务
+
 ```
