@@ -1,4 +1,53 @@
-# Markdown常用指令集
+
+
+## AB机通信内容
+
+
+```mermaid
+graph LR;
+B机:CAN0--电流-->A机:CAN0
+B机:CAN0--电压-->A机:CAN0
+A机:CAN0--语言-->B机:CAN0
+B机:CAN0--语言-->A机:CAN0
+A机--4G-->熊谷服务器
+A机:CAN1-->A动力控制板-->A焊机主板-->A温度模块-->A角度模块-->A焊层模块
+A机:CAN0-->A305机头
+B机:CAN1-->B焊机主板
+```
+## 设备程序内容
+
+- A机
+```mermaid
+graph LR;
+CAN1-->冯希望:显示程序
+CAN1-->CAN1收发程序-->赵成杰:AS4程序
+CAN0-->自动焊:CAN0通信主站-->自动焊:305主程序
+冯希望:显示程序-->消息中转服务
+自动焊:CAN0通信主站-->消息中转服务
+赵成杰:AS4程序-->消息中转服务
+显示程序--电流/电压-->305主程序
+显示程序--送丝速度-->305主程序
+显示程序--错误代码-->305主程序
+显示程序--语言-->305主程序
+305主程序--焊接参数-->显示程序
+305主程序--启动焊接-->显示程序
+305主程序--停止焊接-->显示程序
+305主程序-->扫码结果-->赵成杰:AS4
+305主程序-->机头在线情况-->显示程序
+305主程序--语言-->显示程序
+```
+- B机
+
+```mermaid
+graph LR;
+
+CAN1 --> 冯希望:显示程序 --> 消息中转服务
+CAN0 --> 自动焊:CAN0通信从站 --> 消息中转服务
+
+```
+# Markdown常用指令集 mermaid指令在GitHub不适用  
+
+
 
 ## 流程图基本指令
 
@@ -59,23 +108,6 @@ graph LR;
     A8[A] == 描述 ==> B8[B];
 ```
 
-* 以下例程初步测试未成功 测试发现每条指令还是需要添加分号才能识别
-```mermaid
-graph TB;
-         subgraph one
-         a1-->a2；
-         end
-         
-         subgraph two
-         b1-->b2；
-         end
-         
-         subgraph three
-         c1-->c2；
-         end
-         
-         c1-->a2;
-```         
 
 
 https://blog.csdn.net/lrnanfayer/article/details/104613690/
@@ -88,7 +120,7 @@ https://blog.csdn.net/lrnanfayer/article/details/104613690/
 
 强调符号在Tab键上方 使用后`就会变成这样的强调`
 
-给一段文字加入超链接的格式是这样的 [ 要显示的文字 ]( 链接的地    "zcj handsome!!!")。比如：
+给一段文字加入超链接的格式是这样的 [ 要显示的文字 ](链接的地址 "www.zcjhandsome.com")。比如：
 [帅气的zcj](www.sd.com悬停显示)
 
 
@@ -106,14 +138,13 @@ https://blog.csdn.net/lrnanfayer/article/details/104613690/
 >>>>平衡二叉树  
 >>>>>满二叉树  
 
+* 图片格式的链接功能
 ![](http://www.baidu.com/img/bdlogo.gif)
 
   
-![](https://github.com/guodongxiaren/ImageCache/raw/master/Logo/foryou.gif) 
 
-
-[![baidu]](http://baidu.com)  
-[baidu]:http://www.baidu.com/img/bdlogo.gif "百度Logo" 
+![baidu](http://baidu.com)  
+![baidu]:http://www.baidu.com/img/bdlogo.gif "百度Logo" 
 
 
 ```C
@@ -134,9 +165,7 @@ print("hello world\n");
 ***
 <br>
 ```this single line code to print words```
-```
-this single line code to print words
-```
+
  表头  | 表头  | 表头
 |  :-----: | :-----: | :------:|  
  单元格内容  | 单元格内容 | 单元格内容 
@@ -200,9 +229,9 @@ protected void onDestroy() {
  单元格内容  | 单元格内容 | 单元格内容  
  
 5、其他引用
-图片  
+* 图片  
 ![图片名称](https://www.baidu.com/img/bd_logo1.png)  
-链接  
+* 链接  
 [链接名称](https://www.baidu.com/)    
 6、列表 
 1. 项目1  
@@ -224,49 +253,3 @@ protected void onDestroy() {
 
 
 
-
-## AB机通信内容
-
-
-```mermaid
-graph LR;
-B机:CAN0--电流-->A机:CAN0
-B机:CAN0--电压-->A机:CAN0
-A机:CAN0--语言-->B机:CAN0
-B机:CAN0--语言-->A机:CAN0
-A机--4G-->熊谷服务器
-A机:CAN1-->A动力控制板-->A焊机主板-->A温度模块-->A角度模块-->A焊层模块
-A机:CAN0-->A305机头
-B机:CAN1-->B焊机主板
-```
-## 设备程序内容
-
-- A机
-```mermaid
-graph LR;
-CAN1-->冯希望:显示程序
-CAN1-->CAN1收发程序-->赵成杰:AS4程序
-CAN0-->自动焊:CAN0通信主站-->自动焊:305主程序
-冯希望:显示程序-->消息中转服务
-自动焊:CAN0通信主站-->消息中转服务
-赵成杰:AS4程序-->消息中转服务
-显示程序--电流/电压-->305主程序
-显示程序--送丝速度-->305主程序
-显示程序--错误代码-->305主程序
-显示程序--语言-->305主程序
-305主程序--焊接参数-->显示程序
-305主程序--启动焊接-->显示程序
-305主程序--停止焊接-->显示程序
-305主程序-->扫码结果-->赵成杰:AS4
-305主程序-->机头在线情况-->显示程序
-305主程序--语言-->显示程序
-```
-- B机
-
-```mermaid
-graph LR;
-
-CAN1 --> 冯希望:显示程序 --> 消息中转服务
-CAN0 --> 自动焊:CAN0通信从站 --> 消息中转服务
-
-```
