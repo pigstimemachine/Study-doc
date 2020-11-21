@@ -1,0 +1,70 @@
+#经过各种不方便和繁琐麻烦的计算十六进制的CANID后，终于不想再忍受，遂对其结构进行了优化，保证了我脑子计算不好使时的便携性
+
+```
+#define MaxCANidNum	10
+
+#define HostAddr	0x0A
+#define ChildAngle	0x01
+#define ChildTemp	0x02
+#define ChildLCD	0x03
+
+/*
+id:   采用标准帧, id长度 11bit， MSB 最高位[ 4bit目标地址 | 4bit源地址 | 3bit保留 ] LSB 最低位
+*/
+
+typedef struct tagECANID_INTERNAL
+{
+	unsigned short reserved:3;	//0b000//最低位
+	unsigned short source:4;	//Source address
+	unsigned short target:4;	//Target address最高位
+}ECANID_INTERNAL;
+//const ECANID_INTERNAL ReceiveSM100ID={0x03,0x0a,0x08};
+typedef union
+{
+	ECANID_INTERNAL S_Transmit ;
+	canid_t  ID;//u32 
+}ECANID_TRANS;
+
+typedef struct
+{
+	int num;
+	ECANID_TRANS eCANID;
+}CANID;
+
+enum GroupCANID
+{
+	ID_SM100_to_2814=0,
+	ID_SM100_to_2812=1,
+	ID_SM100_to_2811=2,
+};
+
+extern CANID CAN_id[];
+
+
+//////////////////////以上为头文件内容/////////////////////////////////////////////////////////
+
+
+CANID CAN_id[MaxCANidNum]=
+{
+	{ ID_SM100_to_2814 ,  	{	{ChildLCD,HostAddr,0X08} ,	    } 	},
+	{ ID_SM100_to_2812 , 	{ 	{ChildTemp,HostAddr,0X08} , 	}	},
+	{ ID_SM100_to_2811 , 	{ 	{ChildAngle,HostAddr,0X08} , 	}	},
+};
+
+void _SEND_BinData(u32 checksum,u8* Dbuf,u32 Datalen)
+{
+        struct can_frame can_data;
+        can_data.can_dlc=(Datalen+2)&0xff;
+        can_data.can_id=CAN_id[ID_SM100_to_2814].eCANID.ID;
+        //PX("id=0X%x$$$$$$$$$$$$$$$$\n", CAN_id[ID_SM100_to_2814].eCANID.ID);
+        can_data.data[0]=CMD_BinData;
+        can_data.data[1]=checksum;
+        memcpy(&can_data.data[2],Dbuf,Datalen);
+        Send_Can_Data(&(can_data));
+}
+
+//////////////////////////c文件部分内容以及函数例程//////////////////////////////////////////////
+```
+
+
+
