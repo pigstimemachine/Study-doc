@@ -1,5 +1,6 @@
-## 树莓派装机流程和部分环境搭建
-###初始化设置
+# 树莓派装机流程和部分环境搭建
+	raspberryPi setup when u first use it ,and if u r a programmer like me ,u can also set sth compiler environment from here.
+##初始化设置
 
 ## 设备程序内容
 
@@ -126,15 +127,6 @@ print("hello world\n");
 * this is  a markdown test
 >from handsome zcj
 
-***
-
-***
-***
-***
-***
-***
-
-***
 <br>
 ```this single line code to print words```
 
