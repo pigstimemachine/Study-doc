@@ -5,7 +5,9 @@
 ## 设备程序内容
 
 # Markdown常用指令集 mermaid指令在GitHub不适用  
-'''
+
+...
+
 #include "oled.h"
 #include "led.h"
 //#include "font.h" 
@@ -38,8 +40,7 @@ int main(void)
 	  Timer1_IsrHandler();
 	}	
 }
-```
-'''
+...
 
 **加粗**<br> 
 *斜体*<br> 
