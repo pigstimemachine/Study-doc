@@ -1,6 +1,12 @@
 # 树莓派装机流程和部分环境搭建
 	raspberryPi setup when u first use it ,and if u r a programmer like me ,u can also set sth compiler environment from here.
-##初始化设置
+##QT setup
+
+sudo apt-get update
+sudo apt-get install qt5-default
+sudo apt-get install qtcreator
+sudo apt-get install qtmultimedia5-dev
+sudo apt-get install libqt5serialport5-dev
 
 ## 设备程序内容
 
